@@ -19,7 +19,7 @@ In your terminal, type:
 
 `crontab -e`
 
-Add the following lines to your crontab file (please edit the "/path/to" with the path to the script):
+Add the following lines to your crontab file (_please edit the "/path/to" with the path to the script_):
 ```bash
 #Search for Nextcloud updates every 4 hours & install them when an update is available.
 0 */4 * * * /bin/bash /path/to/install-or-update_Nextcloud.sh
