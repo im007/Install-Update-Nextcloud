@@ -1,4 +1,4 @@
-# Install-Update-Nextcloud
+# Install & Update Nextcloud
 Nextcloud updates on Linux are annoying.
 I created a Bash script to install &amp; update the Nextcloud AppImage in Linux.
 
