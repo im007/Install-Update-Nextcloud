@@ -4,7 +4,7 @@ Updating Nextcloud on Linux can be a hassle.
 This Bash script streamlines the installation & updates of the Nextcloud AppImage.
 
 ## Running the script
-**Download & run the `install-or-update_Nextcloud.sh` file.**
+**Download & run the [install-or-update_Nextcloud.sh](https://github.com/im007/Install-Update-Nextcloud/blob/main/install-or-update_Nextcloud.sh) file.**
 
 Make it executable by running: 
 
