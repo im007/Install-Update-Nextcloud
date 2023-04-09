@@ -3,7 +3,7 @@
 # Fetch latest Nextcloud release info from GitHub's API
 LATEST_RELEASE_JSON=$(curl -s https://api.github.com/repos/nextcloud/desktop/releases/latest)
 
-# Extract the version number + remove "v" prefix
+# Extract the version number & remove "v" prefix
 LATEST_VERSION=$(echo "$LATEST_RELEASE_JSON" | jq -r '.tag_name' | sed 's/^v//')
 
 # Define location for Nextcloud AppImage
