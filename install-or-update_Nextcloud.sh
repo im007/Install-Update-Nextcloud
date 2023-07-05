@@ -7,7 +7,7 @@ LATEST_RELEASE_JSON=$(curl -s https://api.github.com/repos/nextcloud/desktop/rel
 LATEST_VERSION=$(echo "$LATEST_RELEASE_JSON" | jq -r '.tag_name' | sed 's/^v//')
 
 # Define location for Nextcloud AppImage
-NEXTCLOUD_LOC="/home/$USER/.local/share/applications"
+NEXTCLOUD_LOC="/home/$USER/.local/share/applications/"
 APPIMAGE_PATH="$NEXTCLOUD_LOC/Nextcloud.AppImage"
 
 # Check if AppImage exists; extract version number & compare with the latest version
@@ -25,14 +25,15 @@ fi
 
 if [ "$INSTALL_UPDATE" = true ]; then
     # Build the URL for the AppImage file, download & save as Nextcloud.AppImage
-    APPIMAGE_URL="https://github.com/nextcloud/desktop/releases/download/v${LATEST_VERSION}/Nextcloud-${LATEST_VERSION}-x86_64.AppImage"
+    APPIMAGE_URL="https://github.com/nextcloud-releases/desktop/releases/download/v${LATEST_VERSION}/Nextcloud-${LATEST_VERSION}-x86_64.AppImage"
+    #echo "$APPIMAGE_URL"
     wget -O Nextcloud.AppImage "$APPIMAGE_URL"
 
     # If Nextcloud is running, find its PID and kill it; otherwise, mention it's not running & continue
-    pgrep -f "Nextcloud" && kill $(pgrep -f "Nextcloud") || echo "Nextcloud is not running, continuing with update."
+    pgrep -f "Nextcloud[^.]" && pkill -f "Nextcloud[^.]") || echo "Nextcloud is not running, continuing with update."
 
     # Move the AppImage file to the defined location
-    mv Nextcloud.AppImage $NEXTCLOUD_LOC
+    mv ./Nextcloud.AppImage $NEXTCLOUD_LOC
 
     # Make the AppImage executable
     chmod +x $APPIMAGE_PATH
